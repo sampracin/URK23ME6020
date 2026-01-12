@@ -1,0 +1,161 @@
+package experiment1;
+
+
+
+import java.util.Scanner;
+
+
+
+public class ex1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int choice;
+
+
+
+        do {
+
+            System.out.println("\n===== STUDENT UTILITY APP =====");
+
+            System.out.println("1. Check Even or Odd");
+
+            System.out.println("2. Find Largest of 3 Numbers");
+
+            System.out.println("3. Multiplication Table");
+
+            System.out.println("4. Print Prime Numbers up to N");
+
+            System.out.println("5. Exit");
+
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+
+
+            switch (choice) {
+
+                case 1:
+
+                    System.out.print("Enter a number: ");
+
+                    int num = sc.nextInt();
+
+                    if (num % 2 == 0) {
+
+                        System.out.println(num + " is EVEN");
+
+                    } else {
+
+                        System.out.println(num + " is ODD");
+
+                    }
+
+                    break;
+
+                case 2:
+
+                    System.out.print("Enter three numbers: ");
+
+                    int a = sc.nextInt();
+
+                    int b = sc.nextInt();
+
+                    int c = sc.nextInt();
+
+                    if (a >= b && a >= c) {
+
+                        System.out.println("Largest is: " + a);
+
+                    } else if (b >= a && b >= c) {
+
+                        System.out.println("Largest is: " + b);
+
+                    } else {
+
+                        System.out.println("Largest is: " + c);
+
+                    }
+
+                    break;
+
+                case 3:
+
+                    System.out.print("Enter a number: ");
+
+                    int n = sc.nextInt();
+
+                    for (int i = 1; i <= 10; i++) {
+
+                        System.out.println(n + " x " + i + " = " + (n * i));
+
+                    }
+
+                    break;
+
+                case 4:
+
+                    System.out.print("Enter limit: ");
+
+                    int limit = sc.nextInt();
+
+                    System.out.println("Prime numbers:");
+
+                    // Check all numbers from 2 up to the limit
+
+                    for (int i = 2; i <= limit; i++) {
+
+                        boolean isPrime = true;
+
+                        // Check for factors
+
+                        for (int j = 2; j <= i / 2; j++) {
+
+                            if (i % j == 0) {
+
+                                isPrime = false;
+
+                                break; // No need to check further factors
+
+                            }
+
+                        }
+
+                        if (isPrime) {
+
+                            System.out.print(i + " ");
+
+                        }
+
+                    }
+
+                    System.out.println(); // Add a newline after the list of primes
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Exiting Application...");
+
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice! Try again.");
+
+                    break;
+
+            }
+
+        } while (choice != 5);
+
+
+
+        sc.close(); // Close the scanner resource
+
+    }
+
+}
