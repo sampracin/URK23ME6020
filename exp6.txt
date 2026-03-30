@@ -1,0 +1,14 @@
+import studentpack.Student;
+
+public class PackageEncapsulationDemo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        
+        s.setName("Abishek");
+        s.setRegNo(101);
+
+        System.out.println("--- Student Data ---");
+        System.out.println("Student Name   : " + s.getName());
+        System.out.println("Register Number: " + s.getRegNo());
+    }
+}
