@@ -1,0 +1,46 @@
+package exp_8_URK23ME6016;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CollectionDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // ArrayList implements SequencedCollection in Java 21+
+        List<String> students = new ArrayList<>();
+
+        System.out.print("Enter number of students: ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.");
+            return;
+        }
+        
+        int n = sc.nextInt();
+        sc.nextLine(); // Consume newline
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name for student " + (i + 1) + ": ");
+            String name = sc.nextLine();
+            students.add(name);
+        }
+
+        // Accessing elements using Java 21 SequencedCollection methods
+        if (!students.isEmpty()) {
+            System.out.println("\n--- Quick Access ---");
+            System.out.println("First Student: " + students.getFirst());
+            System.out.println("Last Student : " + students.getLast());
+
+            // Reversing the list using the .reversed() view
+            System.out.println("\n--- Student List (Reversed) ---");
+            for (String s : students.reversed()) {
+                System.out.println("- " + s);
+            }
+        } else {
+            System.out.println("\nNo students were added to the list.");
+        }
+
+        sc.close();
+    }
+}
