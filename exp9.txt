@@ -1,0 +1,39 @@
+package com.demo;
+
+import java.io.*;
+
+public class FileHandlingDemo {
+    public static void main(String[] args) {
+        String fileName = "student.txt";
+
+        // 1. Writing data to file
+        // Try-with-resources ensures the file is closed automatically
+        try (FileWriter writer = new FileWriter(fileName)) {
+            writer.write("Name: Sang\n");
+            writer.write("Department: MECHANICAL\n");
+            writer.write("University: Karunya Institute\n");
+            
+            System.out.println("Status: Data written to '" + fileName + "' successfully.\n");
+        } 
+        catch (IOException e) {
+            System.err.println("Error while writing: " + e.getMessage());
+        }
+
+        // 2. Reading data from file
+        File file = new File(fileName);
+        if (file.exists()) {
+            System.out.println("--- Reading Data from File ---");
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+            } 
+            catch (IOException e) {
+                System.err.println("Error while reading: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Error: File not found.");
+        }
+    }
+}
